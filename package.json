@@ -13,10 +13,12 @@
   "dependencies": {
     "@heroicons/react": "^1.0.6",
     "@next/font": "^13.1.1",
+    "@phosphor-icons/react": "^2.0.15",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "@vercel/analytics": "^1.1.1",
-    "embla-carousel-react": "^7.0.5",
+    "embla-carousel-autoplay": "^8.0.0",
+    "embla-carousel-react": "^8.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",

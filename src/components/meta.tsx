@@ -2,9 +2,9 @@ import Head from 'next/head';
 
 
 const data = {
-  full__name: 'Template',
-  homeDescription: 'NextJs, Typescript and TailwindCss Template',
-  prodUrl: 'https://yourLinkHere.com',
+  full__name: 'TestValley',
+  homeDescription: 'TestValley Description will go here',
+  prodUrl: 'https://testValley.com',
   meta__img: 'This is the meta image'
 }
 

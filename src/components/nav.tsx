@@ -1,133 +1,70 @@
-import Button from '@/components/button';
 import SectionWrapper from '@/components/sectionWrapper';
-import NavLinks from '@/lib/constants/links';
-import useOnClickOutside from '@/lib/hooks/useOutsideClick';
-import useScrollOffset from '@/lib/hooks/useScrollOfset';
-import { motion } from 'framer-motion';
-import { Pivot as Hamburger } from 'hamburger-react';
-import { useTheme } from 'next-themes';
+import { Bell, Heart, House, List, MagnifyingGlass, User } from '@phosphor-icons/react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import React, { Fragment, useMemo, useRef, useState } from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import React from 'react';
+
+const footerLinks = [
+  {
+    label: '홈',
+    icon: <House weight="fill" />,
+    href: '#',
+  },
+  {
+    label: '홈',
+    icon: <MagnifyingGlass />,
+    href: '#',
+  },
+  {
+    label: '카테고리',
+    icon: <List />,
+    href: '#',
+  },
+  {
+    label: '좋아요',
+    icon: <Heart />,
+    href: '#',
+  },
+  {
+    label: '마이페이지',
+    icon: <User />,
+    href: '#',
+  },
+];
 
 const NavBar = () => {
-  const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
-  const [isWebBarScrolled, setIsWebBarScrolled] = useState<boolean>(false);
-
-  const navRef = useRef<HTMLDivElement>(null);
-
-  const { setTheme, resolvedTheme } = useTheme();
-
-  const router = useRouter();
-
-  useOnClickOutside(navRef, () => setIsNavOpen(false));
-
-  const scrollOffSet = useScrollOffset();
-
-  useMemo(() => {
-    if (scrollOffSet > 70) {
-      setIsWebBarScrolled(true);
-    } else {
-      setIsWebBarScrolled(false);
-    }
-  }, [scrollOffSet]);
-
-  const ToggleButton = () => {
+  const FooterNav = () => {
     return (
-      <div className=" md:hidden">
-        <div className="outline-none w-full relative">
-          <div className="flex items-center gap-4">
-            <Link href="/resume.pdf" target="_blank">
-              <Button>Resume</Button>
+      <div className="fixed bottom-0 py-3 flex items-center inset-x-0 justify-around text-grey bg-white">
+        {footerLinks.map(({ href, icon, label }, index) => {
+          const isActive = index === 0;
+          return (
+            <Link
+              key={index}
+              href={href}
+              className={`flex flex-col gap-1 items-center justify-center ${
+                isActive && 'text-primary'
+              }`}>
+              <span className="text-2xl">{icon}</span>
+              <span className="text-xs">{label}</span>
             </Link>
-            <ToogleThemeButton />
-            <Hamburger
-              toggled={isNavOpen}
-              toggle={toggleNavOpen}
-              color={resolvedTheme === 'light' ? 'black' : 'white'}
-              size={22}
-              rounded
-            />
-          </div>
-
-          {isNavOpen ? (
-            <motion.div
-              ref={navRef}
-              className="absolute right-0 top-16 rounded-2xl bg-custom_white dark:bg-background_dark shadow-lg"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}>
-              <div className="text-white p-10">
-                {NavLinks.map((link, index) => {
-                  return (
-                    <div key={index} className={`${index !== NavLinks.length - 1 && 'mb-10'}`}>
-                      <Link
-                        href={link.route}
-                        key={link.name}
-                        className="text-center text-sm font-bold dark:text-custom_white text-custom_black">
-                        {`${link.label}`}
-                      </Link>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          ) : null}
-        </div>
+          );
+        })}
       </div>
     );
-  };
-
-  const ToogleThemeButton = () => {
-    return (
-      <button
-        className="text-custom_black dark:text-custom_white rounded-full p-3 hover:bg-gray-200 dark:hover:bg-primary/20 transition-all duration-100"
-        onClick={() => (resolvedTheme === 'light' ? setTheme('dark') : setTheme('light'))}>
-        {resolvedTheme === 'light' ? <FaMoon /> : <FaSun />}
-      </button>
-    );
-  };
-
-  const Web = () => {
-    return (
-      <Fragment>
-        <div className="hidden md:flex items-center gap-14">
-          {NavLinks.map((link) => {
-            return (
-              <Link
-                href={link.route}
-                key={link.name}
-                className="dark:text-gray-300 text-custom_black cursor-pointer">
-                {`${link.label}`}
-              </Link>
-            );
-          })}
-        </div>
-        <div className="hidden md:flex items-center gap-8">
-          <ToogleThemeButton />
-        </div>
-      </Fragment>
-    );
-  };
-
-  const toggleNavOpen = () => {
-    setIsNavOpen(!isNavOpen);
   };
 
   return (
-    <SectionWrapper
-      className={`z-50 sticky top-0 transition-all duration-200 w-full py-3 ${
-        isWebBarScrolled && 'backdrop-blur-md border-b-[0.5px] border-b-custom_border_dark'
-      }`}>
+    <SectionWrapper className="transition-all duration-200 w-full py-3">
       <div className="flex justify-between items-center">
-        <div className="relative font-bold text-lg">
-          <span onClick={() => router.push('/')} className="cursor-pointer">
-            Template
-          </span>
+        <div className="relative font-bold text-2xl text-primary">
+          <Link href={'/'}>TestValley</Link>
         </div>
-        <ToggleButton />
-        <Web />
+        <div className="flex items-center text-2xl text-grey gap-4">
+          <Bell />
+          <MagnifyingGlass />
+        </div>
       </div>
+      {/* <FooterNav /> */}
     </SectionWrapper>
   );
 };

@@ -1,12 +1,16 @@
-import PageWrapper from "./pageWrapper"
-import SectionWrapper from "./sectionWrapper"
+import PageWrapper from './pageWrapper';
+import Banner from './sections/banner';
+import HotDeals from './sections/hotDeals';
+import TopPicks from './sections/topPicks';
 
 const Home = () => {
-    return <PageWrapper>
-       <SectionWrapper>
-       Happy Coding :)
-       </SectionWrapper>
+  return (
+    <PageWrapper>
+      <Banner />
+      <TopPicks />
+      <HotDeals />
     </PageWrapper>
-}
+  );
+};
 
-export default Home
+export default Home;

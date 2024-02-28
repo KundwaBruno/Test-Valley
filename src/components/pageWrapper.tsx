@@ -9,11 +9,9 @@ interface PageWrapperProps {
 const PageWrapper: FC<PageWrapperProps> = ({ children }) => {
   return (
     <Fragment>
-      <div className="dark:bg-black bg-white">
         <NavigationBar />
         {children}
         <Footer />
-      </div>
     </Fragment>
   );
 };

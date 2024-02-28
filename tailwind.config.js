@@ -4,15 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#A96637',
-        background: '#111010',
-        background_light: '#FAFAFA',
-        background_dark: '#111111',
-        custom_gray: '#A1A1A1',
-        custom_black: 'black',
-        custom_white: '#EDEDED',
-        custom_border_dark: '#282828',
-        custom_blue: '#00B2FF',
+        primary: '#00D093',
+        black: '#333333',
+        grey: '#999999',
+        green: "#009E89",
       },
       fontFamily: {
         cinzel: ['Cinzel', 'sans-serif'],
