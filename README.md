@@ -1,21 +1,12 @@
-<p align="center">
-  <img src="https://res.cloudinary.com/dxyu6elli/image/upload/v1702290838/meta_ab07nt.png" alt="KBM Meta image" />
-</p>
+# Test Valley Assessment
 
-# NextJs, Typescript With TailwindCss Template
-
-> My personal NextJs, Typescript and TailwindCss template that saves me alot of time while starting new projects.
+> This is a take away assessment to clone Test Valley's home page. ( <a href='https://www.testvalley.kr/'>Original Link</a>)
 
 ## Table of Contents
 
-- [Read](#Read)
 - [Setup](#setup)
 - [Usage](#usage)
 - [Scripts](#Scripts)
-
-## Read
-
-This is not an official template! This is something that i have built to ease the way i work :) If you have gone through and thought it is something that can help you aswell, go ahead and clone it :)
 
 ## Setup
 
@@ -25,9 +16,8 @@ This is not an official template! This is something that i have built to ease th
 1. Clone the repository.
 
 ```bash
-git clone git@github.com:KundwaBruno/Nextjs-Typescript-Template.git
+git clone https://github.com/KundwaBruno/portfolioV4
 ```
-
 
 2. Install dependencies
 
@@ -49,8 +39,8 @@ yarn dev
 
 - <a href="https://react.dev/" target="_blank">React Js</a>
 - <a href="https://nextjs.org/" target="_blank">NextJs</a>
+- <a href="https://redux-toolkit.js.org/" target="_blank">Redux ToolKit</a>
 - <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
-- <a href="https://ant.design/" target="_blank">Firebase</a>
 
 ## Scripts
 

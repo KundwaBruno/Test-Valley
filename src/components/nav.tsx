@@ -1,41 +1,24 @@
 import SectionWrapper from '@/components/sectionWrapper';
-import { Bell, Heart, House, List, MagnifyingGlass, User } from '@phosphor-icons/react';
+import navLinks from '@/lib/constants/links';
+import { ArchiveTray, Bell, MagnifyingGlass } from '@phosphor-icons/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const footerLinks = [
-  {
-    label: '홈',
-    icon: <House weight="fill" />,
-    href: '#',
-  },
-  {
-    label: '홈',
-    icon: <MagnifyingGlass />,
-    href: '#',
-  },
-  {
-    label: '카테고리',
-    icon: <List />,
-    href: '#',
-  },
-  {
-    label: '좋아요',
-    icon: <Heart />,
-    href: '#',
-  },
-  {
-    label: '마이페이지',
-    icon: <User />,
-    href: '#',
-  },
-];
+const SearchInput = () => {
+  return (
+    <div className="hidden lg:flex items-center gap-2 border rounded py-2 px-3 focus:border-primary">
+      <MagnifyingGlass weight="bold" className="inline" />
+      <input className="outline-none min-w-[250px]" placeholder="최근 검색 내용이 없어요" />
+    </div>
+  );
+};
 
 const NavBar = () => {
   const FooterNav = () => {
     return (
-      <div className="fixed bottom-0 py-3 flex items-center inset-x-0 justify-around text-grey bg-white">
-        {footerLinks.map(({ href, icon, label }, index) => {
+      <div className="fixed bottom-0 py-3 flex items-center inset-x-0 justify-around text-grey bg-white z-50 lg:hidden">
+        {navLinks.map(({ href, icon, label }, index) => {
           const isActive = index === 0;
           return (
             <Link
@@ -54,17 +37,33 @@ const NavBar = () => {
   };
 
   return (
-    <SectionWrapper className="transition-all duration-200 w-full py-3">
-      <div className="flex justify-between items-center">
-        <div className="relative font-bold text-2xl text-primary">
-          <Link href={'/'}>TestValley</Link>
+    <SectionWrapper className="transition-all duration-200 w-full">
+      <div className="flex justify-between items-center py-3">
+        <div className="flex items-center gap-2">
+          <div className="relative font-bold text-2xl">
+            <Link href={'/'}>
+              <Image
+                src="/assets/svgs/logo.svg"
+                width={130}
+                height={50}
+                className="object-contain"
+                alt="Test Valley"
+              />
+            </Link>
+          </div>
+          <span className="text-primary hidden lg:inline-block">카테고리</span>
         </div>
-        <div className="flex items-center text-2xl text-grey gap-4">
+        <SearchInput />
+        <div className="hidden lg:flex items-center divide-x-2">
+          <ArchiveTray className="inline mr-2 text-3xl" />
+          <button className="pl-3 font-medium text-sm">로그인 / 회원가입</button>
+        </div>
+        <div className="flex items-center text-2xl text-grey gap-4 lg:hidden">
           <Bell />
           <MagnifyingGlass />
         </div>
       </div>
-      {/* <FooterNav /> */}
+      <FooterNav />
     </SectionWrapper>
   );
 };

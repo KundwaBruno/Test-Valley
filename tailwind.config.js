@@ -7,7 +7,8 @@ module.exports = {
         primary: '#00D093',
         black: '#333333',
         grey: '#999999',
-        green: "#009E89",
+        green: '#009E89',
+        background: '#F6FAFB',
       },
       fontFamily: {
         cinzel: ['Cinzel', 'sans-serif'],

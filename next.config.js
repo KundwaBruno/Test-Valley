@@ -2,7 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', 'res.cloudinary.com', 'dvd6ljcj7w3pj.cloudfront.net'],
+    domains: [
+      'images.unsplash.com',
+      'res.cloudinary.com',
+      'dvd6ljcj7w3pj.cloudfront.net',
+      'prod-testvalley.s3.ap-northeast-2.amazonaws.com',
+    ],
   },
 };
 
