@@ -1,6 +1,10 @@
-# Test Valley Assessment
+<p align="center">
+  <img src="https://res.cloudinary.com/dxyu6elli/image/upload/v1709474325/Screenshot_2024-03-03_at_15.58.38_oue9rh.png" alt="Test Valley Clone ScreenShot" />
+</p>
 
-> This is a take away assessment to clone Test Valley's home page. ( <a href='https://www.testvalley.kr/'>Original Link</a>)
+# Test Valley Clone
+
+> Test Valley's home page in NextJs ( Clone ). ( <a href='https://www.testvalley.kr/'>Original Link</a>)
 
 ## Table of Contents
 
