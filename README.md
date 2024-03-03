@@ -1,6 +1,6 @@
-# Test Valley Assessment
+# Test Valley
 
-> This is a take away assessment to clone Test Valley's home page. ( <a href='https://www.testvalley.kr/'>Original Link</a>)
+> Test Valley's home page in NextJs ( Clone ). ( <a href='https://www.testvalley.kr/'>Original Link</a>)
 
 ## Table of Contents
 
