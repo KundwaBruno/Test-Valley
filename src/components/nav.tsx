@@ -63,7 +63,7 @@ const NavBar = () => {
           <MagnifyingGlass />
         </div>
       </div>
-      <FooterNav />
+      {/* <FooterNav /> */}
     </SectionWrapper>
   );
 };

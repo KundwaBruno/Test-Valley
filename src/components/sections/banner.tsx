@@ -33,19 +33,19 @@ const Banner = () => {
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
-  if (isLoading)
+  const BannerOverlays = () => {
     return (
-      <div className="flex justify-center items-center py-20">
-        <CircleNotch className="text-5xl animate-spin text-primary" />
+      <div className="absolute inset-0 z-40 hidden lg:flex  pointer-events-none select-none">
+        <div className="h-full bg-white bg-opacity-70 flex-1" />
+        <div className="w-[1000px] h-full" />
+        <div className="h-full bg-white bg-opacity-70 flex-1" />
       </div>
     );
-  return (
-    <div className="relative w-[417px] mx-auto lg:w-full ">
-      <div className="absolute inset-0 z-40 hidden lg:flex justify-between pointer-events-none select-none">
-        <div className="w-[21%] h-full bg-white bg-opacity-60" />
-        <div className="w-[21%] h-full bg-white bg-opacity-60" />
-      </div>
-      <div className="hidden lg:flex items-center justify-between absolute top-[47%] left-0 z-50 inset-x-0 w-[53%] mx-auto">
+  };
+
+  const ControlArrows = () => {
+    return (
+      <div className="hidden lg:flex items-center justify-between absolute top-[47%] left-0 z-50 inset-x-0 w-[970px] mx-auto">
         <button
           onClick={scrollPrev}
           className="rounded-full bg-black bg-opacity-50 p-3 text-xl text-white">
@@ -57,21 +57,11 @@ const Banner = () => {
           <CaretRight />
         </button>
       </div>
-      <div ref={emblaRef} className="overflow-hidden flex-1">
-        <div className="flex w-full">
-          {data?.map(({ mainBannerId, mobileImageUrl, pcImageUrl, title }) => {
-            return (
-              <div
-                key={mainBannerId}
-                className="w-full mr-10 flex-grow-0 flex-shrink-0 lg:w-[1000px] select-none">
-                <div className="relative h-[197px] lg:h-[340px]">
-                  <Image src={isPC ? pcImageUrl : mobileImageUrl} fill alt={title} />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+    );
+  };
+
+  const ScrollSnaps = () => {
+    return (
       <div className="absolute bottom-4 inset-x-0 z-50">
         <div className="flex items-center justify-center gap-2">
           {scrollSnaps.map((sn, index) => {
@@ -87,6 +77,35 @@ const Banner = () => {
           })}
         </div>
       </div>
+    );
+  };
+
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center py-20">
+        <CircleNotch className="text-5xl animate-spin text-primary" />
+      </div>
+    );
+  return (
+    <div className="relative w-[417px] mx-auto lg:w-full ">
+      <BannerOverlays />
+      <ControlArrows />
+      <div ref={emblaRef} className="overflow-hidden flex-1">
+        <div className="flex w-full">
+          {data?.map(({ mainBannerId, mobileImageUrl, pcImageUrl, title }) => {
+            return (
+              <div
+                key={mainBannerId}
+                className="w-full mr-10 flex-grow-0 flex-shrink-0 lg:w-[1000px] select-none">
+                <div className="relative h-[197px] lg:h-[340px]">
+                  <Image src={isPC ? pcImageUrl : mobileImageUrl} fill alt={title} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <ScrollSnaps />
     </div>
   );
 };
